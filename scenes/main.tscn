@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp0mo1j6ivv7w"]
+
+[ext_resource type="Texture2D" uid="uid://pdhjs6872lxe" path="res://items/amazing ice.png" id="1_or762"]
+[ext_resource type="PackedScene" uid="uid://tflmwvrnq2hg" path="res://scenes/player.tscn" id="1_y8nf2"]
+[ext_resource type="Texture2D" uid="uid://e2nj27yvy4fo" path="res://items/Useful.png" id="2_dr21u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jac0"]
+size = Vector2(40, 40.0001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uugt7"]
+size = Vector2(2.0999, 21)
+
+[node name="main" type="Node2D"]
+
+[node name="world" type="Node2D" parent="."]
+
+[node name="stage" type="Node2D" parent="world"]
+
+[node name="ground" type="StaticBody2D" parent="world/stage"]
+position = Vector2(196, 430)
+scale = Vector2(20, 2)
+
+[node name="AmazingIce" type="Sprite2D" parent="world/stage/ground"]
+visibility_layer = 2
+position = Vector2(18.9937, -52.5)
+scale = Vector2(0.899805, 5.0625)
+texture = ExtResource("1_or762")
+
+[node name="ColorRect" type="ColorRect" parent="world/stage/ground"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world/stage/ground"]
+position = Vector2(20, 20)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_8jac0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="world/stage/ground"]
+position = Vector2(3.09997, -10.5)
+rotation = -3.14159
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_uugt7")
+
+[node name="Useful" type="Sprite2D" parent="world/stage/ground"]
+position = Vector2(3.1, -10.5)
+scale = Vector2(0.0320312, 0.320313)
+texture = ExtResource("2_dr21u")
+
+[node name="player" parent="world" instance=ExtResource("1_y8nf2")]
+position = Vector2(583, 351)
